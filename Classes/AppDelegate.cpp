@@ -15,17 +15,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
-    if(!glview) {
+    if(!glview) 
+	{
         glview = GLView::create("RunningMen");
 		
         director->setOpenGLView(glview);
     }
 
-	glview->setDesignResolutionSize(480, 800, ResolutionPolicy::SHOW_ALL);
+	glview->setDesignResolutionSize(320, 480, ResolutionPolicy::SHOW_ALL);
 	glview->setFrameSize(320, 480);
 
     // turn on display FPS
-    director->setDisplayStats(true);
+    //director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);

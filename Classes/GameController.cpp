@@ -117,13 +117,14 @@ bool GameController::hitTestPoint(Vec2 point)
 
 void GameController::onTouch()
 {
+	
 	if (gc_flag == 1)
 	{
-		runHeroR->getPhysicsBody()->setVelocity(Vec2(0, 325));
+		runHeroR->getPhysicsBody()->setVelocity(Vec2(0, visibleSize.height*11/16));
 	}
 
 	if (gc_flag == 2)
 	{
-		runHeroL->getPhysicsBody()->setVelocity(Vec2(0, 325));
+		runHeroL->getPhysicsBody()->setVelocity(Vec2(0, visibleSize.height * 11 / 16));
 	}
 }

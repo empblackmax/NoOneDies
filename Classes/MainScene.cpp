@@ -36,8 +36,8 @@ bool MainScene::init()
 	//²Ëµ¥ÌõÄ¿
 	auto gameItem = MenuItemFont::create("StartGame", CC_CALLBACK_1(MainScene::menuSelCallFunc, this));
 	auto exitItem = MenuItemFont::create("Exit", CC_CALLBACK_1(MainScene::menuSelCallFunc, this));
-	gameItem->setPosition(Point(160, 200));
-	exitItem->setPosition(Point(160, 150));
+	gameItem->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
+	exitItem->setPosition(Point(visibleSize.width / 2, visibleSize.height / 3));
 	gameItem->setColor(Color3B::BLACK);
 	exitItem->setColor(Color3B::BLACK);
 	gameItem->setTag(11);

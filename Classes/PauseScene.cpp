@@ -14,9 +14,9 @@ bool PauseScene::init()
 	auto mainItem = MenuItemImage::create("mainmenu.png", "mainmenu.png", this, menu_selector(PauseScene::pauseSelCallFunc));
 	auto continueItem = MenuItemImage::create("continue.png", "continue.png", this, menu_selector(PauseScene::pauseSelCallFunc));
 	auto restartItem = MenuItemImage::create("restart.png", "restart.png", this, menu_selector(PauseScene::pauseSelCallFunc));
-	mainItem->setPosition(Point(160, 140));
-	continueItem->setPosition(Point(160, 240));
-	restartItem->setPosition(Point(160, 190));
+	mainItem->setPosition(Point(visibleSize.width / 2, visibleSize.height / 4));
+	continueItem->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+	restartItem->setPosition(Point(visibleSize.width / 2, visibleSize.height / 3));
 	
 	mainItem->setTag(1);
 	continueItem->setTag(2);

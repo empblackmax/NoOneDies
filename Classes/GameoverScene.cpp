@@ -10,7 +10,7 @@ bool GameoverScene::init()
 
 	//GameOver
 	auto label = Label::create("GameOver", "Arial", 40);
-	label->setPosition(Point(160, 270));
+	label->setPosition(Point(visibleSize.width/2, visibleSize.height-visibleSize.height/4));
 	label->setColor(Color3B::BLACK);
 	this->addChild(label);
 
@@ -18,8 +18,8 @@ bool GameoverScene::init()
 	//菜单条目
 	auto mainItem = MenuItemImage::create("mainmenu.png", "mainmenu.png", this, menu_selector(GameoverScene::overSelCallFunc));
 	auto restartItem = MenuItemImage::create("restart.png", "restart.png", this, menu_selector(GameoverScene::overSelCallFunc));
-	mainItem->setPosition(Point(160, 140));
-	restartItem->setPosition(Point(160, 190));
+	mainItem->setPosition(Point(visibleSize.width / 2, visibleSize.height / 3));
+	restartItem->setPosition(Point(visibleSize.width / 2, visibleSize.height/2));
 
 	mainItem->setTag(1);
 	restartItem->setTag(2);
@@ -34,6 +34,7 @@ bool GameoverScene::init()
 
 Scene* GameoverScene::overScene(RenderTexture* pSender)
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Scene* myscene = Scene::create();
 	Layer* mylayer = GameoverScene::create();
 	myscene->addChild(mylayer, 1);
@@ -41,7 +42,7 @@ Scene* GameoverScene::overScene(RenderTexture* pSender)
 	//使用Game界面中截图的纹理图片创建Sprite
 	//并将Sprite添加到pausescene场景层中
 	Sprite* mysprite = Sprite::createWithTexture(pSender->getSprite()->getTexture());
-	mysprite->setPosition(Point(160, 240));
+	mysprite->setPosition(Point(visibleSize.width/2, visibleSize.height/2));
 	mysprite->setFlipY(true);            //翻转
 	mysprite->setColor(cocos2d::ccGRAY); //图片颜色变灰色
 	myscene->addChild(mysprite);
