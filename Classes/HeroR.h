@@ -7,14 +7,16 @@ USING_NS_CC;
 class HeroR :public Sprite
 {
 public:
+	
 	CREATE_FUNC(HeroR);
 	virtual bool init();
 	void runR();
+	void jumpR();
 	void bindHeroR(Sprite* sprite);
 
 private:
 	Sprite* runHeroR;
-	
+
 
 };
 

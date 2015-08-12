@@ -1,5 +1,7 @@
 #include "HeroR.h"
 
+
+
 bool HeroR::init()
 {
 	Sprite::init();
@@ -28,7 +30,7 @@ void HeroR::runR()
 	//利用列表创建动画对象
 	Animation* animationR = Animation::createWithSpriteFrames(frameVecR);
 	animationR->setLoops(-1);
-	animationR->setDelayPerUnit(0.03f);
+	animationR->setDelayPerUnit(0.04f);
 
 	Animate* animateR = Animate::create(animationR);
 	runHeroR->runAction(animateR);
@@ -46,6 +48,7 @@ void HeroR::bindHeroR(Sprite* sprite)
 	Size size = runHeroR->getContentSize();
 	runHeroR->setPosition(size / 2);
 	this->setPhysicsBody(PhysicsBody::createBox(size));
+	this->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	
 	//主角不改变角度
 	this->getPhysicsBody()->setRotationEnable(false);
@@ -54,3 +57,6 @@ void HeroR::bindHeroR(Sprite* sprite)
 	//设置碰撞
 	this->getPhysicsBody()->setContactTestBitmask(1);
 }
+
+
+

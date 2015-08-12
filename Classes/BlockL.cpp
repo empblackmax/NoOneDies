@@ -12,7 +12,7 @@ bool BlockL::init()
 	this->setColor(Color3B::BLACK);
 	this->setContentSize(size);
 	this->setPositionX(visibleSize.width);
-
+	this->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 	//不受重力影响
 	this->getPhysicsBody()->setDynamic(false);
 

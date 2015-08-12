@@ -30,7 +30,7 @@ void HeroL::runL()
 	//利用列表创建动画对象
 	Animation* animationL = Animation::createWithSpriteFrames(frameVecL);
 	animationL->setLoops(-1);
-	animationL->setDelayPerUnit(0.03f);
+	animationL->setDelayPerUnit(0.04f);
 
 	Animate* animateL = Animate::create(animationL);
 	runHeroL->runAction(animateL);
@@ -45,6 +45,7 @@ void HeroL::bindHeroL(Sprite* sprite)
 	Size size = runHeroL->getContentSize();
 	runHeroL->setPosition(size / 2);
 	this->setPhysicsBody(PhysicsBody::createBox(size));
+	this->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 
 	//主角不改变角度
 	this->getPhysicsBody()->setRotationEnable(false);
