@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "MainScene.h"
+#include "GameScene.h"
 
 USING_NS_CC;
 
@@ -15,24 +15,22 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
-    if(!glview) 
-	{
-        glview = GLView::create("RunningMen");
-		
+    if(!glview) {
+        glview = GLView::create("My Game");
         director->setOpenGLView(glview);
     }
 
-	glview->setDesignResolutionSize(320, 480, ResolutionPolicy::SHOW_ALL);
-	glview->setFrameSize(320, 480);
+	glview->setDesignResolutionSize(480.0f, 320.0f, ResolutionPolicy::EXACT_FIT);
+	director->setContentScaleFactor(864.0f / 320.0f);
 
     // turn on display FPS
-    //director->setDisplayStats(true);
+    director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-	auto scene = MainScene::createScene();
+    auto scene = GameScene::createScene();
 
     // run
     director->runWithScene(scene);
